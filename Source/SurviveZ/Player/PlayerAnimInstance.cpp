@@ -95,6 +95,7 @@ void UPlayerAnimInstance::TurnInPlace()
 	if (Player == nullptr) return;
 	pitch = Player->GetBaseAimRotation().Pitch;
 
+	// 속도가 0 일때 + 점프중일때는 체크 안함
 	if (speed > 0 || bIsInAir)
 	{
 		RootYawOffset = 0.f;
@@ -103,13 +104,14 @@ void UPlayerAnimInstance::TurnInPlace()
 		RotationCurveValueLastFrame = 0.f;
 		RotationCurve = 0.f;
 	}
+	// 
 	else
 	{
 		CharacterYawLastFrame = CharacterYaw;
 		CharacterYaw = Player->GetActorRotation().Yaw;
-		const float YawDelta = { CharacterYaw - CharacterYawLastFrame };
+		const float YawDiff = { CharacterYaw - CharacterYawLastFrame };
 
-		RootYawOffset = UKismetMathLibrary::NormalizeAxis(RootYawOffset - YawDelta);
+		RootYawOffset = UKismetMathLibrary::NormalizeAxis(RootYawOffset - YawDiff);
 
 		const float Turning = { GetCurveValue(TEXT("Turning")) };
 
@@ -129,7 +131,9 @@ void UPlayerAnimInstance::TurnInPlace()
 				RootYawOffset > 0 ? RootYawOffset -= YawExcess : RootYawOffset += YawExcess;
 			}
 		}
-	//	Logs::Print(CharacterYaw,1);
-	//	Logs::Print(RootYawOffset,2);
+		Logs::Print(YawDiff, 1);
+		Logs::Print(CharacterYaw,2);
+		Logs::Print(RootYawOffset,3);
+		Logs::Print(Turning,4);
 	}
 }

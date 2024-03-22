@@ -1,0 +1,39 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "0.2.0",
+	"FriendlyName": "Motorica Studio",
+	"Description": "An AI-powered animation generation and processing toolkit by Motorica; for creating stylized character locomotion animations from keyframed and preset trajectories. Ideal for game developers, animators, VFX artists, directors and producers. Suitable for previs workflows due to its quick-iteration capabilities!",
+	"Category": "Animation",
+	"CreatedBy": "Motorica.ai | Teodor Nikolov ",
+	"CreatedByURL": "https://www.motorica.ai/",
+	"DocsURL": "https://www.motorica.ai/docs/motorica-studio/",
+	"MarketplaceURL": "",
+	"SupportURL": "https://www.motorica.ai/support/motorica-studio/",
+	"EngineVersion": "5.2.0",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": true,
+	"Installed": true,
+	"SupportedTargetPlatforms": [
+		"Win64"
+	],
+	"Modules": [
+		{
+			"Name": "MoRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "MoEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}
