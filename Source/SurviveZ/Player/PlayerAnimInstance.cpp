@@ -131,9 +131,9 @@ void UPlayerAnimInstance::TurnInPlace()
 				RootYawOffset > 0 ? RootYawOffset -= YawExcess : RootYawOffset += YawExcess;
 			}
 		}
-		Logs::Print(YawDiff, 1);
-		Logs::Print(CharacterYaw,2);
-		Logs::Print(RootYawOffset,3);
-		Logs::Print(Turning,4);
+		//Logs::Print(YawDiff, 1);
+		//Logs::Print(CharacterYaw,2);
+		//Logs::Print(RootYawOffset,3);
+		//Logs::Print(Turning,4);
 	}
 }

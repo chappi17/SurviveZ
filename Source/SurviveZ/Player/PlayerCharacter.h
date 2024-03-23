@@ -135,7 +135,7 @@ private:
 #pragma region Sounds
 
 	UPROPERTY(EditAnywhere, Category = "Sound", meta = (AllowPrivateAccess = "true"))
-	USoundCue* HitSound;
+	class USoundCue* HitSound;
 	
 	UPROPERTY(EditAnywhere, Category = "Sound", meta = (AllowPrivateAccess = "true"))
 	USoundCue* DeathSound;
@@ -355,13 +355,7 @@ protected:
 	UInputAction* FireAction;
 	
 	UPROPERTY(EditAnywhere, Category ="Basic State | Input")
-	UInputAction* GranadeAction;
-	
-	UPROPERTY(EditAnywhere, Category ="Basic State | Input")
 	UInputAction* InterectionAction;
-	
-	UPROPERTY(EditAnywhere, Category ="Basic State | Input")
-	UInputAction* DodgeAction;
 	
 	UPROPERTY(EditAnywhere, Category ="Basic State | Input")
 	UInputAction* JumpAction;
@@ -400,10 +394,8 @@ protected:
 	void SendBullet();
 	void FirePressed();
 	void FireReleased();
-	void Granade();
 	void InterectPressed();
 	void InterectReleased();
-	void Dodge();
 	void CrouchPressed();
 	void FKeyPressed();
 	void OneKeyPressed();

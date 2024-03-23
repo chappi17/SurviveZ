@@ -140,8 +140,6 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		enhancedInputComponent->BindAction(InterectionAction, ETriggerEvent::Completed, this, &APlayerCharacter::InterectReleased);
 		enhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &APlayerCharacter::FirePressed);
 		enhancedInputComponent->BindAction(FireAction, ETriggerEvent::Completed, this, &APlayerCharacter::FireReleased);
-		enhancedInputComponent->BindAction(GranadeAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Granade);
-		enhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Dodge);
 		enhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Completed, this, &APlayerCharacter::CrouchPressed);
 		enhancedInputComponent->BindAction(FAction, ETriggerEvent::Completed, this, &APlayerCharacter::FKeyPressed);
 		enhancedInputComponent->BindAction(OneAction, ETriggerEvent::Completed, this, &APlayerCharacter::OneKeyPressed);
@@ -997,10 +995,6 @@ void APlayerCharacter::PlayFireSound()
 	}
 }
 
-void APlayerCharacter::Granade()
-{
-//	Logs::Print("Granade");
-}
 
 void APlayerCharacter::InterectPressed()
 {
@@ -1016,18 +1010,6 @@ void APlayerCharacter::InterectReleased()
 {
 }
 
-
-void APlayerCharacter::Dodge()
-{
-	UAnimInstance* Anim = GetMesh()->GetAnimInstance();
-	if (Anim && RollingMontage)
-	{
-		Anim->Montage_Play(RollingMontage);
-		Anim->Montage_JumpToSection(FName("Rolling"));
-	}
-	GetCharacterMovement()->bUseControllerDesiredRotation = true;
-	Logs::Print("Change ControllerDesiredRotation");
-}
 
 void APlayerCharacter::CrouchPressed()
 {
